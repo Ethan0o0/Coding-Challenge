@@ -1,0 +1,50 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  title Unit Convertor
+  link#style(href='/resources/css/main.css' rel='stylesheet')
+  script(defer='' src='/resources/js/weight.js')
+body 
+    h1 Weight Convertor
+    h2 A simple tool used to convert units for you!
+    #Weight Unit Convertor
+.container
+    .mainbody
+        form#convertor(action='/mathlogs' method='POST')
+        p
+            label(for='text')
+            h3 From:
+            select#from(name='Units')
+                option(value='Pounds') Pounds
+                option(value='Kilograms') Kilograms 
+                option(value='Ounces') Ounces 
+                option(value='Milligram') Milligram
+                option(value='Gram') Grams
+        p
+            label(for='input') Input:  
+            input#input(type='text' name='input' placeholder='# here')
+        p.toside 
+            label(for='text')
+            h3 To:
+            select#to(name='Units')
+                option(value='Pounds') Pounds
+                option(value='Kilograms') Kilograms 
+                option(value='Ounces') Ounces 
+                option(value='Milligram') Milligram
+                option(value='Gram') Grams
+        p
+            button#set(type='button') Convert!!
+        p 
+            label#output(for='output') Output: 
+    .links
+        nav 
+            ul 
+                li 
+                    a(href='/mainpage')
+                        b Weight Unit Convertor
+                li
+                    a(href='/height')
+                        b Height Unit Convertor 
+                li
+                    a(href='/distance')
+                        b Distance Unit Convertor
