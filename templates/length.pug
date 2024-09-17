@@ -15,11 +15,11 @@ body
             label(for='text')
             h3 From:
             select#from(name='Units')
-                option(value='Pounds') Pounds
-                option(value='Kilograms') Kilograms 
-                option(value='Ounces') Ounces 
-                option(value='Milligram') Milligram
-                option(value='Gram') Grams
+                option(value='Meter') Meters 
+                option(value='Kilometer') Kilometers 
+                option(value='Centimeter') Centimeters 
+                option(value='Feet') Feet
+                option(value='Inch') Inches
         p
             label(for='input') Input:  
             input#input(type='text' name='input' placeholder='# here')
@@ -27,11 +27,11 @@ body
             label(for='text')
             h3 To:
             select#to(name='Units')
-                option(value='Pounds') Pounds
-                option(value='Kilograms') Kilograms 
-                option(value='Ounces') Ounces 
-                option(value='Milligram') Milligram
-                option(value='Gram') Grams
+                ption(value='Meter') Meters 
+                option(value='Kilometer') Kilometers 
+                option(value='Centimeter') Centimeters 
+                option(value='Feet') Feet
+                option(value='Inch') Inches
         p
             button#set(type='button') Convert!!
         p 
@@ -40,11 +40,14 @@ body
         nav 
             ul 
                 li 
-                    a(href='/mainpage')
+                    a(href='/main')
                         b Weight Unit Convertor
                 li
-                    a(href='/height')
+                    a(href='/length')
                         b Height Unit Convertor 
                 li
                     a(href='/distance')
                         b Distance Unit Convertor
+                li
+                    a(href='/weightcalc')
+                        b Weight Unit Calculator

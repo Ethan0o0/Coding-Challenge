@@ -9,22 +9,22 @@ document.addEventListener("DOMContentLoaded", function() {
         const toUnit = document.getElementById("to");
         // console.log(inputWeight.value);
 
-        if (fromUnit.value == "Pounds" && toUnit.value == "Kilograms" ) {
-            // console.log(inputWeight);
-            outputWeight.innerHTML = "Output: " + (inputWeight.value / 2.205).toFixed(4);
-            // console.log(outputWeight.innerHTML);
-        }
-        else if (fromUnit.value == "Pounds" && toUnit.value == "Ounces") {
-            outputWeight.innerHTML = "Output: " + (inputWeight.value * 16).toFixed(4);
-        }
-        else if (fromUnit.value == "Pounds" && toUnit.value == "Gram") {
-            outputWeight.innerHTML = "Output: " + (inputWeight.value * 453.6).toFixed(4);
-        }
-        else if (fromUnit.value == "Pounds" && toUnit.value == "Milligram") {
-            outputWeight.innerHTML = "Output: " + (inputWeight.value * 453600).toFixed(4);
-        }
-        else if (fromUnit.value == "Pounds" && toUnit.value == "Pounds") {
-            outputWeight.innerHTML = "Output: " + inputWeight.value;
+        if (fromUnit.value == "Pounds") {
+            if (toUnit.value == "Kilograms") {
+                outputWeight.innerHTML = "Output: " + (inputWeight.value / 2.205).toFixed(4);
+            }
+            else if (toUnit.value == "Ounces") {
+                outputWeight.innerHTML = "Output: " + (inputWeight.value * 16);
+            }
+            else if (toUnit.value == "Gram") {
+                outputWeight.innerHTML = "Output: " + (inputWeight.value * 453.6).toFixed(2);
+            }
+            else if (toUnit.value == "Milligram") {
+                outputWeight.innerHTML = "Output: " + (inputWeight.value * 453600);
+            }
+            else if (toUnit.value == "Pounds") {
+                outputWeight.innerHTML = "Output: " + inputWeight.value;
+            }
         }
 
     }

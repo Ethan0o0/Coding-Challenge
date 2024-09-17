@@ -18,6 +18,10 @@ app.get("/main", (req, res) => {
     res.render("mainpage.pug")
 })
 
+app.get("/weightcalc", (req, res) => {
+  res.render("weight_calc.pug")
+})
+
 
 
 app.use((req, res, next) => {
