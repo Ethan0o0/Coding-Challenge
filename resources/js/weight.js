@@ -1,3 +1,5 @@
+import * as convert from "./conversions.js";
+
 document.addEventListener("DOMContentLoaded", function() {
 
     function convertWeight() {
@@ -11,16 +13,16 @@ document.addEventListener("DOMContentLoaded", function() {
 
         if (fromUnit.value == "Pounds") {
             if (toUnit.value == "Kilograms") {
-                outputWeight.innerHTML = "Output: " + (inputWeight.value / 2.205).toFixed(4);
+                outputWeight.innerHTML = "Output: " + convert.lbs_to_kg(inputWeight.value);
             }
             else if (toUnit.value == "Ounces") {
-                outputWeight.innerHTML = "Output: " + (inputWeight.value * 16);
+                outputWeight.innerHTML = "Output: " + convert.lbs_to_o(inputWeight.value);
             }
             else if (toUnit.value == "Gram") {
-                outputWeight.innerHTML = "Output: " + (inputWeight.value * 453.6).toFixed(2);
+                outputWeight.innerHTML = "Output: " + convert.lbs_to_g(inputWeight.value);
             }
             else if (toUnit.value == "Milligram") {
-                outputWeight.innerHTML = "Output: " + (inputWeight.value * 453600);
+                outputWeight.innerHTML = "Output: " + convert.lbs_to_mg(inputWeight.value);
             }
             else if (toUnit.value == "Pounds") {
                 outputWeight.innerHTML = "Output: " + inputWeight.value;
