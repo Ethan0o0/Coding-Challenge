@@ -35,7 +35,7 @@ export function kg_to_g(kilos) {
 }
 
 export function o_to_lbs(ounces) {
-    let final = (ounces / 0.0625).toFixed(4);
+    let final = (ounces / 16).toFixed(1);
     return parseFloat(final);
 }
 
@@ -87,5 +87,5 @@ export function g_to_o(g) {
 }
 
 export function g_to_mg(g) {
-    return parseFloat(g / 1000);
+    return parseFloat(g * 1000);
 }
