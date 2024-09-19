@@ -89,3 +89,107 @@ export function g_to_o(g) {
 export function g_to_mg(g) {
     return parseFloat(g * 1000);
 }
+
+export function weightCalc(option1, option2, input1, input2) {
+
+    const conversionRates = {
+        "Pounds": {
+            "Kilograms": { to: kg_to_lb, from: lbs_to_kg, unit1: "lbs", unit2: "kgs" },
+            "Ounces": { to: o_to_lbs, from: lbs_to_o, unit1: "lbs", unit2: "ounces" },
+            "Milligram": { to: mg_to_lbs, from: lbs_to_mg, unit1: "lbs", unit2: "mgs" },
+            "Gram": { to: g_to_lbs, from: lbs_to_g, unit1: "lbs", unit2: "gs" }
+        },
+        "Kilograms": {
+            "Pounds": { to: lbs_to_kg, from: kg_to_lb, unit1: "kgs", unit2: "lbs" },
+            "Ounces": { to: o_to_kg, from: kg_to_o, unit1: "kgs", unit2: "ounces" },
+            "Milligram": { to: mg_to_kg, from: kg_to_mg, unit1: "kgs", unit2: "mgs" },
+            "Gram": { to: g_to_kg, from: kg_to_g, unit1: "kgs", unit2: "gs" }
+        },
+        "Ounces": {
+            "Pounds": { to: lbs_to_o, from: o_to_lbs, unit1: "ounces", unit2: "lbs" },
+            "Kilograms": { to: kg_to_o, from: o_to_kg, unit1: "ounces", unit2: "kilograms" },
+            "Milligram": { to: mg_to_o, from: o_to_mg, unit1: "ounces", unit2: "mgs" },
+            "Gram": { to: g_to_o, from: o_to_g, unit1: "ounces", unit2: "gs" }
+        },
+        "Milligram": {
+            "Pounds": { to: lbs_to_mg, from: mg_to_lbs, unit1: "mgs", unit2: "lbs" },
+            "Kilograms": { to: kg_to_mg, from: mg_to_kg, unit1: "mgs", unit2: "kilograms" },
+            "Ounces": { to: o_to_mg, from: mg_to_o, unit1: "mgs", unit2: "mgs" },
+            "Gram": { to: g_to_mg, from: mg_to_g, unit1: "mgs", unit2: "gs" }
+        },
+        "Gram": {
+            "Pounds": { to: lbs_to_g, from: g_to_lbs, unit1: "gs", unit2: "lbs" },
+            "Kilograms": { to: kg_to_g, from: g_to_kg, unit1: "gs", unit2: "kilograms" },
+            "Ounces": { to: o_to_g, from: g_to_o, unit1: "gs", unit2: "mgs" },
+            "Milligram": { to: mg_to_g, from: g_to_mg, unit1: "gs", unit2: "gs" }
+        },
+    };
+
+    if (conversionRates[option1] && conversionRates[option1][option2]) {
+        const { to, from, unit1, unit2 } = conversionRates[option1][option2];
+        const add_val_1 = input1 + to(input2);
+        const add_val_2 = input2 + from(input1);
+        const sub_val_1 = input1 - to(input2);
+        const sub_val_2 = input2 - from(input1);
+
+        // oput1.innerHTML = `Addition Output: ${add_val_1} ${unit1} or ${add_val_2} ${unit2}`;
+        // oput2.innerHTML = `Subtraction Output: ${sub_val_1} ${unit1} or ${sub_val_2} ${unit2}`;
+        const final = {"add_val_1": add_val_1, "add_val_2": add_val_2, "sub_val_1": sub_val_1, "sub_val_2": sub_val_2, "unit1": unit1, "unit2": unit2};
+        return final;
+    } else {
+        // oput1.innerHTML = "Conversion not supported.";
+        // oput2.innerHTML = "";
+        return "Conversion not supported";
+    }
+
+}
+
+
+export function convertWeight(inputWeight, fromUnit, toUnit) {
+
+    const conversionRates = {
+        "Pounds": {
+            "Kilograms": { to: lbs_to_kg },
+            "Ounces": { to: lbs_to_o },
+            "Milligram": { to: lbs_to_mg },
+            "Gram": { to: lbs_to_g }
+        },
+        "Kilograms": {
+            "Pounds": { to: kg_to_lb },
+            "Ounces": { to: kg_to_o },
+            "Milligram": { to: kg_to_mg },
+            "Gram": { to: kg_to_g }
+        },
+        "Ounces": {
+            "Pounds": { to: o_to_lbs },
+            "Kilograms": { to: o_to_kg },
+            "Milligram": { to: o_to_mg },
+            "Gram": { to: o_to_g }
+        },
+        "Milligram": {
+            "Pounds": { to: mg_to_lbs },
+            "Kilograms": { to: mg_to_kg },
+            "Ounces": { to: mg_to_o },
+            "Gram": { to: mg_to_g }
+        },
+        "Gram": {
+            "Pounds": { to: g_to_lbs },
+            "Kilograms": { to: g_to_kg },
+            "Milligram": { to: g_to_mg },
+            "Ounces": { to: g_to_o }
+        }
+    }
+
+    if (conversionRates[fromUnit] && conversionRates[fromUnit][toUnit]) {
+        const { to } = conversionRates[fromUnit][toUnit];
+        // console.log(to);
+        // outputWeight.innerHTML = "Output: " + to(inputWeight);
+        return to(inputWeight);
+    }
+    else {
+        // outputWeight.innerHTML = "Conversion not applicable";
+        return 0;
+    }
+
+
+}
