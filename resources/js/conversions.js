@@ -1,92 +1,92 @@
-export function lbs_to_kg(pounds) {
+function lbs_to_kg(pounds) {
     let final = (pounds / 2.205).toFixed(4);
     return parseFloat(final);
 }
 
-export function lbs_to_o(pounds) {
+function lbs_to_o(pounds) {
     return parseFloat(pounds * 16);
 }
 
-export function lbs_to_g(pounds) {
+function lbs_to_g(pounds) {
     let final = (pounds * 453.6).toFixed(2);
     return parseFloat(final);
 }
 
-export function lbs_to_mg(pounds) {
+function lbs_to_mg(pounds) {
     return parseFloat(pounds * 453600);
 }
 
-export function kg_to_lb(kilos) {
+function kg_to_lb(kilos) {
     let final = (kilos *  2.205).toFixed(4);
     return parseFloat(final);
 }
 
-export function kg_to_o(kilos) {
+function kg_to_o(kilos) {
     let final = (kilos * 35.274).toFixed(4);
     return parseFloat(final);
 }
 
-export function kg_to_mg(kilos) {
+function kg_to_mg(kilos) {
     return parseFloat(kilos * 1000000);
 }
 
-export function kg_to_g(kilos) {
+function kg_to_g(kilos) {
     return parseFloat(kilos * 1000);
 }
 
-export function o_to_lbs(ounces) {
+function o_to_lbs(ounces) {
     let final = (ounces / 16).toFixed(1);
     return parseFloat(final);
 }
 
-export function o_to_kg(ounces) {
+function o_to_kg(ounces) {
     let final = (ounces / 35.274).toFixed(4);
     return parseFloat(final);
 }
 
-export function o_to_mg(ounces) {
+function o_to_mg(ounces) {
     return parseFloat(ounces * 28350);
 }
 
-export function o_to_g(ounces) {
+function o_to_g(ounces) {
     let final = (ounces * 28.35).toFixed(4);
     return parseFloat(final);
 }
 
-export function mg_to_lbs(mg) {
+function mg_to_lbs(mg) {
     let final = (mg / 453600).toFixed(6);
     return parseFloat(final);
 }
 
-export function mg_to_kg(mg) {
+function mg_to_kg(mg) {
     let final = (mg/1000000).toFixed(4);
     return parseFloat(final);
 }
 
-export function mg_to_o(mg) {
+function mg_to_o(mg) {
     let final = (mg/28350).toFixed(4);
     return parseFloat(final);
 }
 
-export function mg_to_g(mg) {
+function mg_to_g(mg) {
     return parseFloat(mg / 1000);
 }
 
-export function g_to_lbs(g) {
+function g_to_lbs(g) {
     let final = (g / 453.6).toFixed(4);
     return parseFloat(final);
 }
 
-export function g_to_kg(g) {
+function g_to_kg(g) {
     return parseFloat(g / 1000);
 }
 
-export function g_to_o(g) {
+function g_to_o(g) {
     let final = (g /  28.35).toFixed(4);
     return parseFloat(final);
 }
 
-export function g_to_mg(g) {
+function g_to_mg(g) {
     return parseFloat(g * 1000);
 }
 
@@ -132,13 +132,9 @@ export function weightCalc(option1, option2, input1, input2) {
         const sub_val_1 = input1 - to(input2);
         const sub_val_2 = input2 - from(input1);
 
-        // oput1.innerHTML = `Addition Output: ${add_val_1} ${unit1} or ${add_val_2} ${unit2}`;
-        // oput2.innerHTML = `Subtraction Output: ${sub_val_1} ${unit1} or ${sub_val_2} ${unit2}`;
         const final = {"add_val_1": add_val_1, "add_val_2": add_val_2, "sub_val_1": sub_val_1, "sub_val_2": sub_val_2, "unit1": unit1, "unit2": unit2};
         return final;
     } else {
-        // oput1.innerHTML = "Conversion not supported.";
-        // oput2.innerHTML = "";
         return "Conversion not supported";
     }
 
@@ -182,12 +178,9 @@ export function convertWeight(inputWeight, fromUnit, toUnit) {
 
     if (conversionRates[fromUnit] && conversionRates[fromUnit][toUnit]) {
         const { to } = conversionRates[fromUnit][toUnit];
-        // console.log(to);
-        // outputWeight.innerHTML = "Output: " + to(inputWeight);
         return to(inputWeight);
     }
     else {
-        // outputWeight.innerHTML = "Conversion not applicable";
         return 0;
     }
 
