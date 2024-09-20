@@ -15,7 +15,8 @@ Instructions on how to use this:
 
 
 
-BEFORE USING THE WEBPAGE
+BEFORE USING THE WEBPAGE:
+
     1 - This webtool only converts Weight Units, that being lbs, kgs, g, ounces, and mgs
     2 - In addition to conversions I also added a little calculation tool to add and subtract different units together
     3 - The weight convertor starts from left to right, for example if we want to convert lbs to kgs, we put lbs on the left
@@ -25,3 +26,9 @@ BEFORE USING THE WEBPAGE
     5 - For the weight unit calculator, input1 will be for option1 and input2 will be for option2
     6 - The weight unit calculator outputs the final value from left to right as well, first unit being the left and second unit being the right
 
+Technologies used:
+
+    - Javscript
+    - node.js
+    - Pug
+    - Jest
