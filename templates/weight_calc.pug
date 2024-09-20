@@ -4,57 +4,51 @@ head
   title Unit Convertor
   link#style(href='/resources/css/main.css' rel='stylesheet')
   script(defer='' type='module' src='/resources/js/weight_calc.js')
-body 
-    h1 Weight Calculator
-    h2 A little calculator to add different units!
-    #Weight Unit Convertor
-.container
-    .mainbody
-        form#convertor(action='/mathlogs' method='POST')
-        p
-            label(for='text')
-            h3 Option 1:
-            select#option1(name='Units')
-                option(value='Pounds') Pounds
-                option(value='Kilograms') Kilograms 
-                option(value='Ounces') Ounces 
-                option(value='Milligram') Milligram
-                option(value='Gram') Grams
-        p
-            label(for='input') Input 1:  
-            input#input1(type='text' name='input' placeholder='# here')
-        p.toside 
-            label(for='text')
-            h3 Option 2:
-            select#option2(name='Units')
-                option(value='Pounds') Pounds
-                option(value='Kilograms') Kilograms 
-                option(value='Ounces') Ounces 
-                option(value='Milligram') Milligram
-                option(value='Gram') Grams
-        p
-            label(for='input') Input 2:  
-            input#input2(type='text' name='input' placeholder='# here')
-        p
-            button#addbutton(type='addbutton') Add!!
-        p 
-            button#subbutton(type='subbutton') Subtract!!
-        p 
-            label#add_output(for='output') Addition Output: 
-        p 
-            label#sub_output(for='output') Subtraction Output: 
-    .links
-        nav 
-            ul 
-                li 
-                    a(href='/main')
-                        b Weight Unit Convertor
-                li
-                    a(href='/length')
-                        b Height Unit Convertor 
-                li
-                    a(href='/distance')
-                        b Distance Unit Convertor
-                li
-                    a(href='/weightcalc')
-                        b Weight Unit Calculator
+body
+    header
+        h1 Weight Calculator
+        h2 A little calculator to add different units!
+        #Weight Unit Convertor
+.wrapper
+    .container
+        .mainbody
+            form#convertor(action='/mathlogs' method='POST')
+                p
+                    label(for='text')
+                    h3 Option 1:
+                    select#option1(name='Units')
+                        option(value='Pounds') Pounds
+                        option(value='Kilograms') Kilograms 
+                        option(value='Ounces') Ounces 
+                        option(value='Milligram') Milligram
+                        option(value='Gram') Grams
+                p
+                    label(for='input') Input 1:  
+                    input#input1(type='text' name='input' placeholder='# here')
+                p.toside 
+                    label(for='text')
+                    h3 Option 2:
+                    select#option2(name='Units')
+                        option(value='Pounds') Pounds
+                        option(value='Kilograms') Kilograms 
+                        option(value='Ounces') Ounces 
+                        option(value='Milligram') Milligram
+                        option(value='Gram') Grams
+            p.secondinput
+                label(for='input') Input 2:  
+                input#input2(type='text' name='input' placeholder='# here')
+            p
+                button#addbutton(type='addbutton') Add and Subtract!!
+            p 
+                label#add_output(for='output') Addition Output: 
+            p 
+                label#sub_output(for='output') Subtraction Output: 
+        .links
+            nav 
+                ul 
+                    li 
+                        a(href='/main')
+                            b Weight Unit Convertor
+                    li
+                        a(href='/weightcalc')
+                            b Weight Unit Calculator

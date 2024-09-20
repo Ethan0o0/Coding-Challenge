@@ -1,20 +1,108 @@
+/* Some very basic css used to make a small interface for the user */
+
 body {
     background-color: lightcyan;
-    /* display: flex;
-    flex-direction: column; */
     margin: 0;
+    height: 100vh; 
+    display: block;
+}
+
+header {
+    width: 100%; 
+    text-align: left;
+    padding: 20px;
+    position: absolute; 
+    top: 0;
+    left: 0;
+}
+
+
+.wrapper {
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+    height: 100vh; 
 }
 
 div.container {
     display: flex;
-    flex-direction: row;
+    justify-content: space-between;
+    width: 80%; 
+    margin-top: 50px;
 }
 
 div.mainbody {
     background-color: gray;
-    /* align-self: center; */
+    padding: 20px;
+    width: 60%; 
+    margin-right: 10%; 
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
 }
 
 div.links {
     background-color: gray;
+    width: 30%; 
+    padding: 20px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2); 
+    border-radius: 8px;
+    text-align: left; 
+}
+
+form#convertor {
+    display: flex;
+    justify-content: space-between; 
+    width: 100%;
+    margin-bottom: 20px;
+}
+
+form#convertor p {
+    width: 45%; 
+}
+
+button#set {
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 20px; 
+}
+
+button#addbutton {
+    display: block;
+    margin: 0 auto; 
+    margin-bottom: 20px; 
+}
+
+label#output {
+    display: block;
+    text-align: center;
+    margin-top: 10px; 
+}
+
+.secondinput {
+    display: block;
+    text-align: center;
+    margin-top: 10px; 
+    margin-right: 60px;
+}
+
+label#add_output, label#sub_output {
+    display: block;
+    text-align: center;
+    margin-top: 10px; 
+}
+
+select#from, select#to, select#option1, select#option2{
+    height: 30px; 
+    width: 200px; 
+    padding: 4px;  
+    font-size: 14px; 
+    border-radius: 5px; 
+    border: 1px solid #ccc; 
+    box-sizing: border-box;
+}
+
+h3 {
+    margin: 0; 
+    line-height: 30px;
+    padding-right: 10px
 }

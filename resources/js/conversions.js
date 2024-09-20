@@ -1,3 +1,10 @@
+// This file is for all my conversions
+// It contains all the functions to convert units
+// It contains the function to convert any unit and calculate additions and subtractions with other units
+
+
+
+
 function lbs_to_kg(pounds) {
     let final = (pounds / 2.205).toFixed(4);
     return parseFloat(final);
@@ -35,7 +42,7 @@ function kg_to_g(kilos) {
 }
 
 function o_to_lbs(ounces) {
-    let final = (ounces / 16).toFixed(1);
+    let final = (ounces / 16).toFixed(4);
     return parseFloat(final);
 }
 
@@ -59,17 +66,17 @@ function mg_to_lbs(mg) {
 }
 
 function mg_to_kg(mg) {
-    let final = (mg/1000000).toFixed(4);
+    let final = (mg/1000000).toFixed(6);
     return parseFloat(final);
 }
 
 function mg_to_o(mg) {
-    let final = (mg/28350).toFixed(4);
+    let final = (mg/28350).toFixed(5);
     return parseFloat(final);
 }
 
 function mg_to_g(mg) {
-    return parseFloat(mg / 1000);
+    return parseFloat(parseFloat(mg / 1000).toFixed(3));
 }
 
 function g_to_lbs(g) {
@@ -78,7 +85,7 @@ function g_to_lbs(g) {
 }
 
 function g_to_kg(g) {
-    return parseFloat(g / 1000);
+    return parseFloat(parseFloat(g / 1000).toFixed(3));
 }
 
 function g_to_o(g) {
@@ -90,8 +97,11 @@ function g_to_mg(g) {
     return parseFloat(g * 1000);
 }
 
+
+//This function is for adding and subtracting different units together
 export function weightCalc(option1, option2, input1, input2) {
 
+    //An object that contains all the units and possibilities of which units to combine
     const conversionRates = {
         "Pounds": {
             "Kilograms": { to: kg_to_lb, from: lbs_to_kg, unit1: "lbs", unit2: "kgs" },
@@ -125,6 +135,8 @@ export function weightCalc(option1, option2, input1, input2) {
         },
     };
 
+    //An if statement that will determine which units and values we need to add/subtract
+    //Uses the object created above to help determine
     if (conversionRates[option1] && conversionRates[option1][option2]) {
         const { to, from, unit1, unit2 } = conversionRates[option1][option2];
         const add_val_1 = input1 + to(input2);
@@ -133,6 +145,7 @@ export function weightCalc(option1, option2, input1, input2) {
         const sub_val_2 = input2 - from(input1);
 
         const final = {"add_val_1": add_val_1, "add_val_2": add_val_2, "sub_val_1": sub_val_1, "sub_val_2": sub_val_2, "unit1": unit1, "unit2": unit2};
+        //returns an object that we will later send to our server
         return final;
     } else {
         return "Conversion not supported";
@@ -140,9 +153,11 @@ export function weightCalc(option1, option2, input1, input2) {
 
 }
 
-
+//A function that is able to determine which unit to convert with any input
 export function convertWeight(inputWeight, fromUnit, toUnit) {
 
+    //An object that contains all possibilties for which 
+    //units to convert
     const conversionRates = {
         "Pounds": {
             "Kilograms": { to: lbs_to_kg },
@@ -176,11 +191,15 @@ export function convertWeight(inputWeight, fromUnit, toUnit) {
         }
     }
 
+    //A simple if statement that converts whatever input we need to a 
+    //wanted output using the object created above
     if (conversionRates[fromUnit] && conversionRates[fromUnit][toUnit]) {
         const { to } = conversionRates[fromUnit][toUnit];
         return to(inputWeight);
     }
     else {
+        //simply returns zero if the conversions match
+        //ex: Pounds to Pounds
         return 0;
     }
 
