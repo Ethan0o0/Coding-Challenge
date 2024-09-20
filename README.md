@@ -32,3 +32,8 @@ Technologies used:
     - node.js
     - Pug
     - Jest
+
+ERRORS:
+
+     - When trying to convert two of the same units it outputs into a 0
+     - When trying to add and subtract two of the same units, the output becomes undefined
